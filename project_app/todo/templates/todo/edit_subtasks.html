@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="{% static 'todo/styles.css' %}?version=53" type="text/css" rel="stylesheet" media="screen,projection">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    
+    <!-- <link rel="stylesheet" href="./todo/styles.css" /> -->
+  </head>
+  <body style="height: 100%;"">
+
+  <div class="container page-todo bootstrap snippets bootdeys">
+  	
+  <div class="details" id="project-details">
+    <div class="modal-dialog" style="width: auto !important">
+
+    					<div style="display: flex;">
+    						<div class="delete-btn-div" style="width:50%; text-align: start">
+	    					<button class="btn btn-primary delete-project" value="back" onclick="back_subtasks('{{ project_pk }}','{{task_pk}}')">Back</button>
+	    					</div>
+
+	    					<div class="delete-btn-div" style="width:50%; text-align: end">
+	    					<button class="btn btn-danger delete-project" value="Delete" onclick="delete_subtasks('{{ project_pk }}', '{{task_pk}}', '{{ subtask_pk }}')">Delete Task</button>
+	    					</div>
+
+    					</div>
+    					
+					    <label for="subtaskname" style="margin-top: 15px">Subtask Name</label>
+					    <input type="text" id="subtaskname" name="subtaskname" value="{{ subtaskname }}" placeholder="Subtask Name.." required>
+
+					    <label for="description" style="margin-top: 15px">Subtask Description</label>
+					    <textarea id="description_subtask" name="description" placeholder="Subtask Description.." style="height:100px" required>{{ description }}</textarea>
+					    <div class="project-date" style="width: 100%;">
+						    <label for="start_date_subtask" style="margin-top: 15px; width: 100%;">Start Date</label>
+						    <input  type="date" id="start_date_subtask" name="start_date_subtask" value="{{ start_date }}"  style="font-size:16px; margin-top: 10px; padding: 4px; font-family: 'Josefin Sans';"  required>
+					  	</div>
+
+					  	<div class="project-date" style="width: 100%;">
+						    <label for="end_date_subtask" style="margin-top: 15px; width: 100%;">End Date</label>
+						    <input  type="date" id="end_date_subtask" name="end_date_subtask" value="{{ end_date }}"  style="font-size:16px; margin-top: 10px; padding: 4px; font-family: 'Josefin Sans';"  required>
+					  	</div>
+
+  						<div style="width: 100%; text-align: right;">
+						  <button  class="btn btn-success" type="button" value="Submit" onclick="edit_specific_subtask('{{subtask_pk}}', '{{ task_pk }}')" style="margin-top: 15px; margin-bottom: 30px" required>
+						  	Submit
+						  </button>
+
+						      
+						   </div>			
+  			  
+				 </div>
+				
+        </div>
+      </div>
+
+  </body>
+</html>
+
+<script type="text/javascript" src="{% static 'todo/js/edit_subtask.js' %}?v=98"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
